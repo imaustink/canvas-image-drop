@@ -1,0 +1,31 @@
+{
+  "name": "dropper",
+  "version": "1.0.0",
+  "description": "A light weight library that allows you to drag and drop images from your filesystem or the browser onto a canvas and paint them.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify src/wrapper.jq.js > dist/dropper.jq.js; browserify src/wrapper.js > dist/dropper.js --standalone Dropper;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imaustink/canvas-image-drop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imaustink/canvas-image-drop/issues"
+  },
+  "homepage": "https://github.com/imaustink/canvas-image-drop#readme",
+  "dependencies": {
+    "browserify": "^13.1.1",
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "reactify": "^1.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
