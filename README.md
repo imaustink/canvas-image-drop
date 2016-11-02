@@ -22,5 +22,18 @@ A light weight library that allows you to drag and drop images from your filesys
 
 # Options
 ## .imageDrop()
+| Name          | Type          | Description                                   | Example                                             |
+|---------------|---------------|-----------------------------------------------|-----------------------------------------------------|
+| ```canvas```  | ```Object```  | Reference to DOM element                      | ```{canvas: document.getElelementById('Canvas')}``` |
+| ```fit```     | ```Boolean``` | Shrink image to fit within the canvas         | ```{fit: true}```                                   |
+| ```resize```  | ```Boolean``` | Resize canvas to image size                   | ```{resize: true}```                                |
+| ```center```  | ```String```  | Options are ```'cursor'``` and ```'canvas'``` | ```{center: 'cursor'}```                            |
+| ```offset```  | ```Object```  | X and Y offset values                         | ```{offset: {x: 10, y: 10}}```                      |
+| ```overlay``` | ```Boolean``` | Allow image to be drawn over existing images  | ```{overlay: true}```                               |
 
 ## .imagePainter()
+| Name          | Type           | Description                                     | Example                                              |
+|---------------|----------------|-------------------------------------------------|------------------------------------------------------|
+| ```element``` | ```Object```   | Reference to DOM element                        | ```{element: document.getElelementById('Canvas')}``` |
+| ```title```   | ```String```   | A title to draw on the element if it's a canvas | ```{title: true}```                                  |
+| ```drop```    | ```Function``` | On drop callback function                       | ```{drop: function(image, target){}}```              |
