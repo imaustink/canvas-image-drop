@@ -1,7 +1,7 @@
-# canvas-image-drop
+# Dropper.js
 A light weight library that allows you to drag and drop images from your filesystem or the browser onto a canvas and paint them.
 
-### Bassic Implimentation:
+## Bassic Implimentation:
 ```html
 <!-- Include jQuery -->
 <script src="js/jquery.min.js"></script>
@@ -21,7 +21,7 @@ A light weight library that allows you to drag and drop images from your filesys
 ```
 
 # Options
-## .imageDrop()
+## .imagePainter()
 | Name          | Type          | Description                                   | Example                                             |
 |---------------|---------------|-----------------------------------------------|-----------------------------------------------------|
 | ```canvas```  | ```Object```  | Reference to DOM element                      | ```{canvas: document.getElelementById('Canvas')}``` |
@@ -31,7 +31,7 @@ A light weight library that allows you to drag and drop images from your filesys
 | ```offset```  | ```Object```  | X and Y offset values                         | ```{offset: {x: 10, y: 10}}```                      |
 | ```overlay``` | ```Boolean``` | Allow image to be drawn over existing images  | ```{overlay: true}```                               |
 
-## .imagePainter()
+## .imageDrop()
 | Name          | Type           | Description                                     | Example                                              |
 |---------------|----------------|-------------------------------------------------|------------------------------------------------------|
 | ```element``` | ```Object```   | Reference to DOM element                        | ```{element: document.getElelementById('Canvas')}``` |
