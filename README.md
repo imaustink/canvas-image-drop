@@ -19,3 +19,8 @@ A light weight library that allows you to drag and drop images from your filesys
     });
 </script>
 ```
+
+# Options
+## .imageDrop()
+
+## .imagePainter()
