@@ -168,7 +168,7 @@ module.exports.imageDrop = function imageDrop(settings){
 
     function setImage(src){
         // Create an image element for loading our image into
-        var image = document.createElement('img');
+        var image = new Image();
         image.src = src;
         // Listen for image loading
         image.addEventListener('load', function(e) {
