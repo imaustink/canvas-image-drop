@@ -103,8 +103,6 @@ module.exports.imageDrop = function imageDrop(settings){
     
     // Get our element
     var element = settings.element;
-    // Create an image element for loading our image into
-    var image = document.createElement('img');
     // Last drag event
     var lastDrag;
     
@@ -118,16 +116,6 @@ module.exports.imageDrop = function imageDrop(settings){
         context.fillText(settings.title || 'Drop image here', element.width / 2, element.height / 2);   
     }
     
-    // Listen for image loading
-    image.addEventListener('load', function(e) {
-        // Create event
-        e = new CustomEvent('image-drop', {detail: {image: image}});
-        // Emit event
-        element.dispatchEvent(e);
-        // On change callback
-        if(typeof settings.drop === 'function') settings.drop(image, element);
-    }, false);
-    
     // Prevent dragover event so you can drop the image
     element.addEventListener('dragover', function(e) {
         e.preventDefault();
@@ -139,7 +127,9 @@ module.exports.imageDrop = function imageDrop(settings){
     }, false);
     
     // Listent for drop event
-    element.addEventListener('drop', function(e) {
+    element.addEventListener('drop', drop, false);
+
+    function drop(e) {
         // Prevent page from loading dropped file
         e.preventDefault();
         
@@ -163,7 +153,7 @@ module.exports.imageDrop = function imageDrop(settings){
                 // Note: addEventListener doesn't work in Google Chrome for this event
                 reader.onload = function(e) {
                     // Load base64 encoded image
-                    image.src = e.target.result;
+                    setImage(e.target.result);
                 };
                 // Read our file and convert it to base64
                 reader.readAsDataURL(file);
@@ -171,9 +161,24 @@ module.exports.imageDrop = function imageDrop(settings){
             }
         } else
         // Load image from src of exiting image
-        if(lastDrag && lastDrag.target) image.src = lastDrag.target.src;
+        if(lastDrag && lastDrag.target) setImage(lastDrag.target.src);
         
-    }, false);
+    }
+
+    function setImage(src){
+        // Create an image element for loading our image into
+        var image = document.createElement('img');
+        image.src = src;
+        // Listen for image loading
+        image.addEventListener('load', function(e) {
+            // Create event
+            e = new CustomEvent('image-drop', {detail: {image: image}});
+            // Emit event
+            element.dispatchEvent(e);
+            // On change callback
+            if(typeof settings.drop === 'function') settings.drop(image, element);
+        }, false);
+    }
     
     return this;
 };
