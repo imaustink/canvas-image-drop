@@ -1,4 +1,6 @@
 # Dropper.js
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/imaustink/image-drop.svg)](https://greenkeeper.io/)
 A light weight library that allows you to drag and drop images from your filesystem or the browser onto a canvas and paint them.
 
 ## Bassic Implimentation:
